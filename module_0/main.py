@@ -7,11 +7,11 @@ def game_core(number):
     :param number: угадываемое число
     :return: угаданное число
     """
-
     count = 0
     predict_a = 1 # начало диапазона, которому принадлежит загаданное число
     predict_b = 100 # конец диапазона, которому принадлежит загаданное число
     predict = (predict_a + predict_b) // 2 # стартовое значение, с которого перебираем
+
     # выполняем алгоритм, пока значения прогноза и введенного числа не сойдутся
     while predict != number:
         # если введенное число больше текущего прогноза
@@ -25,6 +25,7 @@ def game_core(number):
         # в качестве нового прогноза выбираем середину измененного диапазона
         predict = (predict_a + predict_b) // 2
         count += 1
+
     return count
 
 
@@ -36,7 +37,6 @@ def score_game(game_core):
     for number in random_array:
         count_ls.append(game_core(number))
     score = int(np.mean(count_ls))
-    print(score)
     print(f"Ваш алгоритм угадывает число в среднем за {score} попыток")
     return score
 
