@@ -119,6 +119,9 @@ def task_11(ans):
     ''' Return popular genre '''
     return all_films_by_genres.size().sort_values(ascending=False).index[0]
 
+    all_genres = set(np.concatenate(list(all_films.genres)))
+
+
 
 # Вопрос 12. Фильмы какого жанра чаще всего становятся прибыльными?
 def task_12(ans):
@@ -223,11 +226,12 @@ def task_19(ans):
 def task_20(ans):
     """ Get year with maximal revenue for Warner Bros """
     ''' Get films by task variants'''
-    year_films = all_films[all_films.release_year.isin(ans)].copy()
+    # year_films = all_films[all_films.release_year.isin(ans)].copy()
+    year_films = all_films.query(f'release_year.isin({ans})').copy()
     year_films['production_companies'] = year_films['production_companies'].str.join('|')
 
     ''' Get WB films and group by years with calculate summary values '''
-    wb_films = year_films.query('production_companies.str.contains(\'Warner Bros.\')').groupby('release_year').sum()
+    wb_films = year_films[year_films.production_companies.str.contains('Warner Bros')].groupby('release_year').sum()
 
     return wb_films['profit'].sort_values(ascending=False).index[0]
 
@@ -276,9 +280,9 @@ def task_25(ans):
     ''' Filter by studio from task '''
     studio_films = all_films.explode('production_companies').query(f'production_companies.isin({ans})')
     ''' New column for length of title '''
-    studio_films['title_length'] = len(studio_films.original_title.str.split(' '))
+    studio_films['overview_length'] = studio_films.overview.str.count(' ')
     ''' Group by companies name and sort by mean value of title length '''
-    return studio_films.groupby('production_companies').title_length.mean().sort_values(ascending=False).index[0]
+    return studio_films.groupby('production_companies').overview_length.mean().sort_values(ascending=False).index[0]
 
 
 # Вопрос 26. Какие фильмы входят в один процент лучших по рейтингу?
@@ -440,10 +444,18 @@ test = {
 
 def form_answer(answer, variants):
     num_answer = variants.index(answer)
-    return str(num_answer + 1) + '. ' + str(variants[num_answer])
+    full_answer = str(num_answer + 1) + '. ' + str(variants[num_answer])
+    print(full_answer)
+    return full_answer
 
 
 answers = {}
 
 for number in test:
+    print("#task" + number)
     answers[number] = form_answer(test[number]['solver'](test[number]['answers']), test[number]['answers'])
+
+from itertools import combinations
+print(list(combinations([1, 2, 3, 4, 5], 2)))
+
+all_films.cast.
