@@ -454,8 +454,3 @@ answers = {}
 for number in test:
     print("#task" + number)
     answers[number] = form_answer(test[number]['solver'](test[number]['answers']), test[number]['answers'])
-
-from itertools import combinations
-print(list(combinations([1, 2, 3, 4, 5], 2)))
-
-all_films.cast.
