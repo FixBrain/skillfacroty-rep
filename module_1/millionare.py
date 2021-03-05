@@ -248,9 +248,10 @@ def task_21(ans):
 # Вопрос 22. Сколько суммарно вышло фильмов летом (за июнь, июль, август)?
 def task_22(ans):
     """ Get films count by summer """
-    return len(all_films[all_films.release_month.isin([6, 7, 8])])
+    # return len(all_films[all_films.release_month.isin([6, 7, 8])])
+    return all_films.release_date.apply(lambda x: )
 
-
+print(task_22([]))
 # Вопрос 23. Для какого режиссера зима — самое продуктивное время года?
 def task_23(ans):
     """ Get producer with maximal films by winter. """
@@ -451,6 +452,8 @@ def form_answer(answer, variants):
 
 answers = {}
 
+'''
 for number in test:
     print("#task" + number)
     answers[number] = form_answer(test[number]['solver'](test[number]['answers']), test[number]['answers'])
+'''
