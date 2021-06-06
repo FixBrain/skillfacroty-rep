@@ -157,8 +157,8 @@ koef = -0.329295
 
 После анализа *boxplot* для номинативных переменных видно, что только для
 переменной *Mjob* имеется корреляция.
-![Mjob other boxplot](Mjob_other.png)
-![Mjob None boxplot](Mjob_none.png)
+![Mjob other boxplot](/Mjob_other.PNG)
+![Mjob None boxplot](/Mjob_none.PNG)
 
 ### Выводы и формирование итогового *dataset*
 В итоговый dataset включим переменные, которые имеют коэффициент корреляции
