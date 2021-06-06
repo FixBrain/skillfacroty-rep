@@ -42,7 +42,7 @@ famrel 28
 **Количество неудач**
 
 На построенном boxplot видно, что все значения, кроме 0, являются выбросами.
-![failures  boxplot](failures_less.png)
+![failures  boxplot](https://github.com/FixBrain/skillfacroty-rep/blob/module_2/module_2/failrules_less.png?raw=true)
 
 Распределение по значениям.
 ```
@@ -157,8 +157,8 @@ koef = -0.329295
 
 После анализа *boxplot* для номинативных переменных видно, что только для
 переменной *Mjob* имеется корреляция.
-![Mjob other boxplot](/mjob_other.PNG?raw=true)
-![Mjob None boxplot](/mjob_none.PNG?raw=true)
+![Mjob other boxplot](https://github.com/FixBrain/skillfacroty-rep/blob/module_2/module_2/mjob_other.PNG?raw=true)
+![Mjob None boxplot](https://github.com/FixBrain/skillfacroty-rep/blob/module_2/module_2/mjob_none.PNG?raw=true)
 
 ### Выводы и формирование итогового *dataset*
 В итоговый dataset включим переменные, которые имеют коэффициент корреляции
