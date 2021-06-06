@@ -42,6 +42,7 @@ famrel 28
 **Количество неудач**
 
 На построенном boxplot видно, что все значения, кроме 0, являются выбросами.
+
 ![failures  boxplot](https://github.com/FixBrain/skillfacroty-rep/blob/module_2/module_2/failrules_less.png?raw=true)
 
 Распределение по значениям.
